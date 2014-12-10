@@ -20,6 +20,11 @@ export GITHUB_TOKEN=1234
 github-commit-status --user foo --repo bar --commit $SHA --status success
 ```
 
+You can also optionally include a: target url, description, or context to be included in the status update:
+```sh
+github-commit-status --user foo --repo bar --commit $SHA --status success --target-url https://ci.example.com/build/1 --description "It failed because it is busted" --context ci
+```
+
 If you're using github enterprise, you can set the API endpoint like so:
 ```sh
 export GITHUB_API=https://github.example.com/api/v3
