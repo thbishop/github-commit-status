@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"runtime"
+	"strings"
 )
 
 func addHeaders(c *config, req *http.Request) {
@@ -44,7 +45,7 @@ func newConfig() *config {
 
 func getApiUrl() string {
 	if apiUrl := os.Getenv("GITHUB_API"); apiUrl != "" {
-		return apiUrl
+		return strings.TrimSuffix(apiUrl, "/")
 	}
 	return "https://api.github.com"
 }

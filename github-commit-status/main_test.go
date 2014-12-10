@@ -46,6 +46,7 @@ var apiUrlTcs = []struct {
 }{
 	{"", "https://api.github.com"},
 	{"https://github.example.com", "https://github.example.com"},
+	{"https://github.example.com/", "https://github.example.com"},
 }
 
 func TestGetApiUrl(t *testing.T) {
@@ -59,6 +60,7 @@ func TestGetApiUrl(t *testing.T) {
 		if result != tc.expected {
 			t.Errorf("Error: expected\n'%s' got\n'%s'", tc.expected, result)
 		}
+		os.Setenv("GITHUB_API", "")
 	}
 }
 
@@ -77,6 +79,7 @@ func TestStatusRequestBody(t *testing.T) {
 }
 
 func TestStatusUrl(t *testing.T) {
+	os.Setenv("GITHUB_API", "http://api.example.com")
 	os.Setenv("GITHUB_TOKEN", "foobar")
 	c := newConfig()
 	expected := os.Getenv("GITHUB_API") + "/repos/user1/repo1/statuses/1234"
@@ -85,6 +88,7 @@ func TestStatusUrl(t *testing.T) {
 	if result != expected {
 		t.Errorf("Error: expected\n'%s' got \n'%s", expected, result)
 	}
+	os.Setenv("GITHUB_API", "")
 	os.Setenv("GITHUB_TOKEN", "")
 }
 
