@@ -45,5 +45,25 @@ func parseCliArgs() *options {
 		os.Exit(1)
 	}
 
+	if !validState(opts.State) {
+		os.Stderr.Write([]byte(fmt.Sprintf("'%s' is an invalid state\n", opts.State)))
+		parser.WriteHelp(os.Stderr)
+		os.Exit(1)
+	}
+
 	return opts
+}
+
+func states() []string {
+	return []string{"error", "failure", "pending", "success"}
+}
+
+func validState(state string) bool {
+	valid := false
+	for _, s := range states() {
+		if state == s {
+			return true
+		}
+	}
+	return valid
 }
