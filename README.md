@@ -11,7 +11,8 @@ if you're on OSX.
 
 ## Usage
 
-Create a [github token]() with TODO scope and export it as an env var:
+Create a [github token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+with `repo:status` scope and export it as an env var:
 ```sh
 export GITHUB_TOKEN=1234
 ```
@@ -32,7 +33,8 @@ github-commit-status --user foo \
                      --context ci
 ```
 
-If you're using github enterprise, you can set the API endpoint like so:
+If you're using github enterprise, you can set the API endpoint with an env
+var like so:
 ```sh
 export GITHUB_API=https://github.example.com/api/v3
 ```
