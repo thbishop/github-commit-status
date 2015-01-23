@@ -1,5 +1,7 @@
 ## github-commit-status
 
+[![Build Status](https://travis-ci.org/thbishop/github-commit-status.svg?branch=master)](https://travis-ci.org/thbishop/github-commit-status)
+
 This is a simple utility to update the status of a commit on github. The
 primary use case is to update the status of a commit in a build environment.
 
