@@ -27,6 +27,7 @@ fmt:
 
 release:
 	@echo "==> Releasing"
+	@script/build_binaries.sh
 	@script/release $(GITHUB_USER)
 
 test: fmt vet
