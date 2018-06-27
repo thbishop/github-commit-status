@@ -1,3 +1,9 @@
+MAKEFLAGS += --warn-undefined-variables
+.SHELLFLAGS := -eux -o pipefail -c
+SHELL=/bin/bash
+
+GITHUB_USER ?= thbishop
+
 all: clean test build
 
 binaries: clean fmt test
@@ -21,7 +27,7 @@ fmt:
 
 release:
 	@echo "==> Releasing"
-	@script/release
+	@script/release $(GITHUB_USER)
 
 test: fmt vet
 	@echo "==> Running tests."
