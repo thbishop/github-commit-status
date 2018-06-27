@@ -28,6 +28,7 @@ fmt:
 release:
 	@echo "==> Releasing"
 	@script/build_binaries.sh
+	@which jq || (echo jq required; exit 1)
 	@script/release $(GITHUB_USER)
 
 test: fmt vet
