@@ -14,7 +14,7 @@ if you're on OSX.
 ## Usage
 
 Create a [github token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
-with `repo:status` scope and export it as an env var:
+with `repo:status` scope and write access to your repository and export it as an env var:
 ```sh
 export GITHUB_TOKEN=1234
 ```
