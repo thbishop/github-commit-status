@@ -11,7 +11,7 @@ binaries: clean fmt test
 
 build:
 	@echo "==> Compiling source code."
-	@godep go build -v -o ./bin/github-commit-status ./github-commit-status
+	@go build -v -o ./bin/github-commit-status ./github-commit-status
 
 clean:
 	@echo "==> Cleaning up previous builds."
@@ -19,7 +19,7 @@ clean:
 
 deps:
 	@echo "==> Downloading dependencies."
-	@godep save -r ./github-commit-status/...
+	@dep ensure -u -v
 
 fmt:
 	@echo "==> Formatting source code."
@@ -31,10 +31,10 @@ release:
 
 test: fmt vet
 	@echo "==> Running tests."
-	@godep go test -cover ./github-commit-status/...
+	@go test -cover ./github-commit-status/...
 
 vet:
-	@godep go vet ./github-commit-status/...
+	@go vet ./github-commit-status/...
 
 help:
 	@echo "binaries\tcreate binaries"
