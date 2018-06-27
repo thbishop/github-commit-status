@@ -51,5 +51,14 @@ If needed, a proxy can be configured using environment variables:
 * Make sure tests pass
 * Send a pull request and I'll get it integrated
 
+## Build and release
+
+Note: this personal access token needs repo scope.
+
+```
+make
+GITHUB_TOKEN=<personal access token> make release [GITHUB_USER=<user>]
+```
+
 ## LICENSE
 See [LICENSE](LICENSE)
